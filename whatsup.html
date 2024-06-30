@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Message to Telegram and WhatsApp</title>
+</head>
+<body>
+    <h2>Contact Form</h2>
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea><br><br>
+
+        <input type="button" value="Send to WhatsApp" onclick="sendToWhatsApp()">
+        <input type="button" value="Send to Telegram" onclick="sendToTelegram()">
+    </form>
+
+    <script>
+    function sendToWhatsApp() {
+        const name = document.getElementById('name').value;
+        const message = document.getElementById('message').value;
+        const whatsappLink = `https://wa.me/251923462272?text=From ${name}: ${message}`;
+        window.open(whatsappLink, '_blank');
+    }
+
+    function sendToTelegram() {
+        const name = document.getElementById('name').value;
+        const message = document.getElementById('message').value;
+        const telegramLink = `https://t.me/your-telegram-bot-name?start=${encodeURIComponent(message)}`;
+        window.open(telegramLink, '_blank');
+    }
+    </script>
+</body>
+</html>
